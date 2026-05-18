@@ -132,7 +132,7 @@
               <div id="admBody" class="bg-white border border-slate-200 rounded-2xl overflow-hidden">Loading...</div>
               <div id="admModal" class="fixed inset-0 bg-ink/60 hidden items-center justify-center z-50 p-4" onclick="closeModal(event)"></div>
             </div>`;
-            const items = await apiFetch("/admin/admissions");
+           const items = await apiFetch("/api/admin/admissions");
             const body = document.getElementById("admBody");
             if (!items.length) { body.innerHTML = '<div class="text-center text-ash py-12">No applications yet.</div>'; return; }
             body.innerHTML = `<div class="overflow-x-auto"><table class="w-full text-left text-sm">
