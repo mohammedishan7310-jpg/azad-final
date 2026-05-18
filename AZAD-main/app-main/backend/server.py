@@ -26,6 +26,15 @@ db = client[os.environ['DB_NAME']]
 
 # ---------- App ----------
 app = FastAPI(title="Azad School API")
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "https://zingy-monstera-7d0ec6.netlify.app"
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # CORS FIX: allow your Netlify frontend to call this Render backend
 ALLOWED_ORIGINS = [
