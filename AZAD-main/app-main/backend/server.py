@@ -301,6 +301,7 @@ async def serve_file(path: str):
 
 # ---------- Admin routes ----------
 @api_router.get("/admin/admissions")
+@api_router.get("/api/admin/admissions")
 async def admin_list_admissions(current=Depends(get_current_user)):
     items = await db.admissions.find({}, {"_id": 0}).sort("created_at", -1).to_list(1000)
     return items
